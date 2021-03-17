@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">{{person.name}} {{person.age}}<br>
+    {{nextYear(`안녕하세요`)}}
+    {{otherMethod(`뿅`)}}
+    <input :type="type"v-bind:value='inputData'> <!--v-bind: 를 :로 축약가능--><br>
+    <a v-bind:href="getKossieCoderLink('kossiecoder')">코지코더채널</a>
+    <br>
+    {{year}}<br>
+    <button v-on:click='plus'>더하기</button>
+    <button v-on:click='minus'>뺴기</button>
+
+    <br>
+    <form v-on:submit.prevent = 'submit'>
+        <!-- <input type="text" v-bind:value='text' @keyup='updateText'><br>v-on은 @로 대체가능 -->
+        <input type="text" v-model="text"><br>
+        {{text}}<br>
+        <button type = 'submit'>Submit</button>
+    </form>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                person:{
+                    name:'코지코더',
+                    age:34
+
+                },
+                
+                inputData : 'hello',
+                type : 'number',
+                link : 'https://www.youtube.com/',
+                year : 2018,
+                text : 'text'
+            },
+            methods:{
+                getKossieCoderLink(channel){
+                    return this.link + channel;
+                },
+                nextYear(greeting){
+                    return `${greeting} ${this.person.name} 는 내년에 ${this.person.age + 1} 살입니다.`
+                },
+                otherMethod:function(){
+                    this.nextYear(`뿅`);
+                },
+                plus(){
+                   this.year++;
+                },
+                minus(){
+                    this.year--;
+                },
+                submit(){
+                    alert('submited!');
+                    console.log('hello');
+                },
+                // updateText(event){
+                //     this.text = event.target.value;
+                // }
+            }
+
+        })
+    </script>
+</body>
+</html>
