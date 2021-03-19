@@ -13,12 +13,16 @@
     <!--[뷰js 2 (vuejs 2) 기초 익히기 기본 강좌] 07 Watch 속성 -->
     <div id="app">
         {{number+1}}
-
-
+        <br>
+       
         <br>
         <button @click="changeMessage">Click</button>
-        {{reversedMessage}}
+        <!-- {{reversedMessage}}
         {{reversedMessage2()}}
+         -->
+        <p>watch</p>
+        {{updated}}
+        {{message}}
     </div>
     
     <script>
@@ -26,7 +30,8 @@
             el:'#app',
             data:{
                 number:1,
-                message : '헬로우'
+                message : '헬로우',
+                updated:'아니요'
             },
             methods:{
                 changeMessage(){
@@ -39,6 +44,12 @@
             computed:{ // 미리 저장을해둔 값을 사용
                 reversedMessage(){
                     return this.message.split('').reverse().join('')
+                }
+            },
+            watch:{
+                message(newVal,oldVal){
+                    console.log(newVal,oldVal);
+                    this.updated = '네';
                 }
             }
         })

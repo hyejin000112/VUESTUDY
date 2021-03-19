@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <template  v-if = "number ===1">  <!-- v-if는 true가 아니면 아예 렌더링 하지 않는다.-->
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+        </template>
+        <div v-else-if='number ===2'>Hi This is two</div>
+        <div v-else>No</div>
+        <button @click='increaseNumber'>Increase</button> {{number}}
+
+        <br>
+        <br>
+
+        <div v-show = 'show'>Yes</div>
+        <br>
+        <button @click='toggle'>Toggle</button>   <!--show는 display:none을 없앴다 생겻다 하는것-->
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                number:1,
+                show:true
+            },
+            methods:{
+                increaseNumber(){
+                    this.number++;
+                },
+                toggle(){
+                    this.show = !this.show;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
