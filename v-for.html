@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,38 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
     <div id="app">
+        <div>{{people[0].name}}{{people[0].age}}</div>
 
+        <hr>
+
+        <!-- person은 data안에서의 person배열을 의미
+        배열을 기반으로 인덱스 처음부터 끝까지 출력.
+        두번째 인자로 index를 써줄경우 해당 배열에서 반복되고있는 인덱스를 뽑아줌.-->
+        <div v-for="(person,index) in people" :key="person.id">
+            {{person.name}}{{person.age}} {{index}}
+        </div>
     </div>
+
     <script>
         new Vue({
-            el:'#app',
-            data:{
-                people:[
-                    {name:'a' },
-                    {name:'b' },
-                    {name:'c' }
+            el: '#app',
+            data: {
+                people: [
+                    { id: 1 ,name: 'a', age: 20 },
+                    { id: 2 ,name: 'b', age: 21 },
+                    { id: 3 ,name: 'c', age: 22 },
+                    { id: 4 ,name: 'd', age: 23 }
                 ]
             },
-            methods:{
-                
+            methods: {
+
             }
         })
 
     </script>
 </body>
+
 </html>

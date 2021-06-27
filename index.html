@@ -21,7 +21,8 @@
     <br>
     <form v-on:submit.prevent = 'submit'>
         <!-- <input type="text" v-bind:value='text' @keyup='updateText'><br>v-on은 @로 대체가능 -->
-        <input type="text" v-model="text"><br>
+        <input type="text" v-model="text"><br><!--양방향 바인딩 사용
+         양방향 바인딩"-->
         {{text}}<br>
         <button type = 'submit'>Submit</button>
     </form>

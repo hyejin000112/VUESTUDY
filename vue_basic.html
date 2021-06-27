@@ -47,7 +47,7 @@
                 }
             },
             watch:{
-                message(newVal,oldVal){
+                message(newVal,oldVal){  //message변수가 변화하면 update변수를  '네' 로 바꿉니다.
                     console.log(newVal,oldVal);
                     this.updated = '네';
                 }
